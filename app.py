@@ -4,47 +4,53 @@ import time
 # 1. إعدادات واجهة الموقع
 st.set_page_config(page_title="Smart Fitness Trainer", page_icon="💪")
 
-# --- كود تنسيق الألوان والأحجام (CSS) ---
+# --- كود التنسيق الجبار للعناوين (CSS) ---
 st.markdown("""
     <style>
-    /* العنوان الرئيسي - كبير وواضح */
-    .main-title {
+    /* العنوان الرئيسي - ضخم جداً وملفت */
+    .hero-title {
         color: #89CFF0 !important;
         text-align: center;
-        font-size: 55px; /* تكبير الحجم */
-        font-weight: 800;
-        margin-bottom: 5px;
-        text-shadow: 2px 2px 4px #d6eaf8;
+        font-size: 70px !important; /* حجم ضخم جداً */
+        font-weight: 900 !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
+        text-shadow: 3px 3px 6px rgba(137, 207, 240, 0.3);
+        line-height: 1.2;
     }
-    /* العنوان الفرعي - أصغر قليلاً من الرئيسي */
-    .sub-title {
+    /* العنوان الفرعي - كبير وواضح وتحت الرئيسي مباشرة */
+    .hero-sub {
         color: #5DADE2 !important;
         text-align: center;
-        font-size: 28px; /* حجم متوسط */
-        font-weight: 500;
-        margin-top: 0px;
-        margin-bottom: 30px;
+        font-size: 35px !important; /* حجم كبير للمبيّن */
+        font-weight: 600 !important;
+        margin-top: -10px !important;
+        margin-bottom: 40px !important;
     }
-    /* تنسيق الزرار */
+    /* تنسيق الزرار عشان يبقى ضخم هو كمان */
     div.stButton > button:first-child {
         background-color: #89CFF0 !important;
         color: white !important;
         border: none;
         width: 100%;
-        border-radius: 12px;
-        height: 3.5em;
-        font-size: 18px;
-        font-weight: bold;
+        border-radius: 15px;
+        height: 4em;
+        font-size: 22px !important;
+        font-weight: bold !important;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
     }
-    h2, h3 {
+    /* تحسين شكل النصوص الجانبية */
+    label {
+        font-size: 18px !important;
+        font-weight: bold !important;
         color: #5DADE2 !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 2. عرض العناوين بالأحجام الجديدة
-st.markdown('<p class="main-title">💪 مساعد التدريب الذكي 🌟</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-title">صمم نظامك التدريبي المخصص بناءً على أهدافك</p>', unsafe_allow_html=True)
+# 2. عرض العناوين بالأحجام الجديدة "الضخمة"
+st.markdown('<p class="hero-title">💪 مساعد التدريب الذكي 🌟</p>', unsafe_allow_html=True)
+st.markdown('<p class="hero-sub">نظامك الرياضي المتكامل بلمسة ذكاء اصطناعي</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 # 3. إدخال البيانات الشخصية
@@ -63,35 +69,34 @@ with col2:
 
 if st.button("توليد نظام التدريب المخصص"):
     with st.status("🔍 جاري تحليل البيانات البدنية...", expanded=True) as status:
-        st.write("حساب مؤشر كتلة الجسم (BMI)...")
-        time.sleep(1.5)
-        st.write("تحديد الاحتياج اليومي من السعرات...")
-        time.sleep(1.5)
-        status.update(label="✅ تم تصميم نظامك التدريبي بنجاح!", state="complete", expanded=False)
+        st.write("حساب الاحتياجات الغذائية...")
+        time.sleep(1)
+        st.write("تصميم الجدول التدريبي...")
+        time.sleep(1)
+        status.update(label="✅ تم تصميم نظامك بنجاح!", state="complete", expanded=False)
 
     st.markdown("---")
     
     # 4. النتيجة
-    st.markdown(f"<h2 style='color: #89CFF0;'>📊 النظام المقترح لـ: {goal}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='color: #89CFF0; text-align: center; font-size: 40px;'>📊 الجدول التدريبي المقترح</h2>", unsafe_allow_html=True)
     
-    tab1, tab2 = st.tabs(["📅 جدول التمارين", "🍎 نظام التغذية"])
+    tab1, tab2 = st.tabs(["🏋️ الجدول الأسبوعي", "🥗 الدليل الغذائي"])
     
     with tab1:
-        st.info("📍 **خطة التدريب الأسبوعية:**")
-        st.write("""
-        - **السبت:** صدر + بطن.
-        - **الأحد:** ظهر + سواعد.
-        - **الاثنين:** راحة.
-        - **الثلاثاء:** أكتاف + ترايسيبس.
-        - **الأربعاء:** أرجل + بايسيبس.
-        - **الخميس والجمعة:** كارديو خفيف أو راحة.
+        st.info("📍 **تقسيم التمارين:**")
+        st.write("توزيع التمارين مصمم لضمان أقصى استفادة وعمل استشفاء عضلي سليم.")
+        st.markdown("""
+        - **يوم 1:** صدر + بطن.
+        - **يوم 2:** ظهر + سواعد.
+        - **يوم 3:** راحة.
+        - **يوم 4:** أكتاف + تراي.
+        - **يوم 5:** أرجل + باي.
         """)
     
     with tab2:
-        st.success("💡 **توصيات التغذية:**")
-        st.write(f"- الالتزام بوجبات غنية بالبروتين (صدور دجاج، سمك، بيض).")
-        st.write("- توزيع الوجبات على 4-5 مرات يومياً.")
-        st.write("- الابتعاد عن الوجبات السريعة والمشروبات الغازية.")
+        st.success("💡 **أهم النصائح:**")
+        st.write("- اهتم بشرب الماء بكثرة أثناء التمرين.")
+        st.write("- النوم لمدة لا تقل عن 7-8 ساعات يومياً.")
 
     st.markdown("---")
-    st.caption("تم تطوير هذا المساعد الذكي لدعم النشاط البدني - مشروع الميدترم 2026")
+    st.caption("حقوق المشروع محفوظة - كلية التربية النوعية 2026")
