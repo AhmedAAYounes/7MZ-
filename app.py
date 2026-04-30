@@ -11,8 +11,8 @@ st.markdown("""
     .hero-title {
         color: #89CFF0 !important;
         text-align: center;
-        font-size: 60px !important; /* حجم ضخم جداً */
-        font-weight: 700 !important;
+        font-size: 50px !important; /* حجم ضخم جداً */
+        font-weight: 600 !important;
         margin-bottom: 0px !important;
         padding-bottom: 0px !important;
         text-shadow: 3px 3px 6px rgba(137, 207, 240, 0.3);
