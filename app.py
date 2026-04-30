@@ -24,8 +24,8 @@ st.markdown("""
         text-align: center;
         font-size: 35px !important; /* حجم كبير للمبيّن */
         font-weight: 600 !important;
-        margin-top: -10px !important;
-        margin-bottom: 50px !important;
+        margin-top: -20px !important;
+        margin-bottom: 40px !important;
     }
     /* تنسيق الزرار عشان يبقى ضخم هو كمان */
     div.stButton > button:first-child {
